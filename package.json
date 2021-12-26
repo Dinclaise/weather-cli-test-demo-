@@ -1,0 +1,32 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "CLI for weather",
+  "main": "weather.js",
+  "bin": {
+    "weather": "weather.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Dinclaise/weather-cli-test-demo-.git"
+  },
+  "keywords": [
+    "weather",
+    "cli"
+  ],
+  "author": "Anton Anokhin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dinclaise/weather-cli-test-demo-/issues"
+  },
+  "homepage": "https://github.com/Dinclaise/weather-cli-test-demo-#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chalk": "^5.0.0",
+    "dedent-js": "^1.0.1"
+  }
+}
