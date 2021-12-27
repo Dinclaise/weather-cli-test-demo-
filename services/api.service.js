@@ -5,7 +5,8 @@ import { printError } from "./log.service.js";
 import { getKeyValue, TOKEN_DICTIONARY } from "./storage.service.js";
 
 const getWeather = async (city) => {
-  const token = await getKeyValue(TOKEN_DICTIONARY.token);
+  const token =
+    process.env.TOKEN ?? (await getKeyValue(TOKEN_DICTIONARY.token));
 
   if (isEmptyValue(token) === true) {
     return printError("No token set, add it via the command -t [API_KEY]");
