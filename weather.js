@@ -61,7 +61,6 @@ const getForcast = async (args) => {
 
 const initCLI = () => {
   const args = getArgs(process.argv);
-  console.log("arahs", args);
 
   if (isEmptyValue(args["s"]) === false) {
     // Сохранить город

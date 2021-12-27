@@ -22,7 +22,6 @@ const printHelp = () => {
 };
 
 const printWeather = (data) => {
-  console.log("ss", data);
   console.log(
     dedent`${chalk.bgMagenta(chalk.black(" WEATHER INFO "))}
         Погода в городе ${data.name}:
