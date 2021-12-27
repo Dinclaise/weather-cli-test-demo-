@@ -17,6 +17,8 @@ const saveKeyValue = async (key, value) => {
     data = JSON.parse(file);
   }
 
+  console.log("data", data);
+
   data[key] = value;
 
   await promises.writeFile(filePath, JSON.stringify(data));
