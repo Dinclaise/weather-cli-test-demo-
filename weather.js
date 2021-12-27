@@ -1,12 +1,17 @@
 #!/usr/bin/env node
 
 import { getArgs } from "./helpers/args.js";
+import { getWeather } from "./services/api.service.js";
 import { printError, printHelp, printSuccess } from "./services/log.service.js";
-import { saveKeyValue } from "./services/storage.service.js";
+import { saveKeyValue, TOKEN_DICTIONARY } from "./services/storage.service.js";
+import { isEmptyValue } from "./utils/utils.js";
 
 const saveToken = async (token) => {
+  if (isEmptyValue(token) === true || typeof token === "boolean") {
+    return printError("No token specified!");
+  }
   try {
-    saveKeyValue("token", token);
+    saveKeyValue(TOKEN_DICTIONARY.token, token);
     printSuccess("Token was saved successfull");
   } catch (e) {
     printError(e.message);
@@ -20,17 +25,19 @@ const initCLI = () => {
   const args = getArgs(process.argv);
   console.log(args);
 
-  if (args["s"]) {
+  if (isEmptyValue(args["s"]) === false) {
     //Сохранить город
   }
 
-  if (args["h"]) {
+  if (isEmptyValue(args["h"]) === false) {
     printHelp();
   }
 
-  if (args["t"]) {
+  if (isEmptyValue(args["t"]) === false) {
     saveToken(args["t"]);
   }
+
+  getWeather("moscow");
 
   //Вывод погоды
 };
